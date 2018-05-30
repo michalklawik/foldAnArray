@@ -1,7 +1,11 @@
 package kata;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Fold {
     public static Integer[] foldAnArray(int[] array) {
@@ -13,5 +17,13 @@ public class Fold {
             retList.add(array[array.length/2]);
         }
         return retList.stream().toArray(Integer[]::new);
+    }
+
+    public static Integer[] foldAnArrayNTimes(int[] array, int foldCount) {
+        List<Integer> retList = Arrays.stream(array).boxed().collect(Collectors.toList());
+        for (int i = 0; i < foldCount; i++) {
+            
+        }
+        return new Integer[0];
     }
 }

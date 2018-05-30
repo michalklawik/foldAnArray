@@ -17,4 +17,12 @@ public class AppTest
         assertThat(Fold.foldAnArray(array2)).isEqualTo(Arrays.array(9,6));
         assertThat(Fold.foldAnArray(array3)).isEqualTo(Arrays.array(15));
     }
+
+    @Test
+    public void shouldFoldArrayNTimes() {
+        int[] array1 = {1,2,3,4,5};
+
+        assertThat(Fold.foldAnArrayNTimes(array1, 2)).isEqualTo(Arrays.array(9,6));
+        assertThat(Fold.foldAnArrayNTimes(array1, 3)).isEqualTo(Arrays.array(15));
+    }
 }
