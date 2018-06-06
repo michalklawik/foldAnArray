@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Fold {
-    public static Integer[] foldAnArray(int[] array) {
+
+    public static int[] foldAnArray(int[] array) {
         List<Integer> retList = new ArrayList<>();
         for (int i = 0; i < array.length/2; i++ ) {
             retList.add(array[i] + array[array.length - 1 - i]);
@@ -16,14 +17,14 @@ public class Fold {
         if (array.length % 2 != 0) {
             retList.add(array[array.length/2]);
         }
-        return retList.stream().toArray(Integer[]::new);
+        return retList.stream().mapToInt(a -> a).toArray();
     }
 
     public static Integer[] foldAnArrayNTimes(int[] array, int foldCount) {
         List<Integer> retList = Arrays.stream(array).boxed().collect(Collectors.toList());
         for (int i = 0; i < foldCount; i++) {
-            
+            array = foldAnArray(array);
         }
-        return new Integer[0];
+        return retList.stream().toArray(Integer[]::new);
     }
 }
